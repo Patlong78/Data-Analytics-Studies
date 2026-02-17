@@ -17,5 +17,6 @@ git pull : updates global instance to local instance
 git fetch : Updates local snapshot of GitHub
 git diff origin/main : compares difference of local instance to the global instance, origin/main is the local snapshot of cloud
 git commit -a -m "Message to describe changes" : combines both lines of git add and git commit
-git log : 
-q : quits the VIM code editor in the terminal 
+git log : provides list of commits from latest to oldest
+q : quits the VIM code editor in the terminal
+git log -p -1 : provides list of commits with their differences (-# = number of commits)
