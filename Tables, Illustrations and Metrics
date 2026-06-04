@@ -1,0 +1,158 @@
+# METRICS — df.info()
+
+1.  TABLE:  df.info
+
+```python
+df.info()
+```
+
+**Output:**
+```
+<class 'pandas.DataFrame'>
+RangeIndex: 30655 entries, 0 to 30654
+Data columns (total 12 columns):
+ #   Column                               Non-Null Count  Dtype 
+---  ------                               --------------  ----- 
+ 0   No.                                  30655 non-null  object
+ 1   Country (or Region)                  30655 non-null  str   
+ 2   Plant Name                           30655 non-null  str   
+ 3   Number of Units                      30655 non-null  object
+ 4   Total Plant Installed Capacity (MW)  30655 non-null  object
+ 5   Fuel Types                           30655 non-null  str   
+ 6   CO2 Emissions (Mg)                   30655 non-null  object
+ 7   SO2 Emissions (Mg)                   30655 non-null  object
+ 8   NOx Emissions (Mg)                   30655 non-null  object
+ 9   PM2.5 Emissions (Mg)                 30655 non-null  object
+ 10  Fuel Types Index                     30655 non-null  int64 
+ 11  Country (or Region) Index            30655 non-null  int64 
+dtypes: int64(2), object(7), str(3)
+memory usage: 2.8+ MB
+```
+
+---
+
+2.  ILLUSTRATION:  Average CO2 Emissions by Fuel Type
+
+```python
+df.groupby('Fuel Types')['CO2 Emissions (Mg)'].mean()
+```
+
+**Output:**
+```
+Fuel Types
+BIOMASS    5.361124e+04
+COAL       1.903300e+06
+NG         2.579992e+05
+OIL        6.881549e+04
+OTHER      8.370729e+04
+```
+
+---
+
+3.  INFOGRAPHIC:  Block 4 EDA — Fuel Type Emission Overview
+
+Three-panel figure generated from `04 - Fuel Type Emission Values.ipynb`.
+
+**Panels:**
+- **Top-left** — Plant count per fuel type (vertical bar chart)
+- **Top-right** — Top 10 countries by total CO2 emissions (horizontal bar chart)
+- **Bottom** — Mean CO2, SO2, NOx and PM2.5 emissions grouped by fuel type (grouped bar chart)
+
+```python
+import matplotlib.pyplot as plt
+import matplotlib.ticker as mticker
+import numpy as np
+
+EMISSION_COLS = [
+    "CO2 Emissions (Mg)",
+    "SO2 Emissions (Mg)",
+    "NOx Emissions (Mg)",
+    "PM2.5 Emissions (Mg)",
+]
+for col in EMISSION_COLS:
+    df[col] = pd.to_numeric(df[col], errors="coerce")
+
+# --- data ---
+plants_per_fuel = df["Fuel Types"].value_counts()
+
+top10_co2 = (
+    df.groupby("Country (or Region)")["CO2 Emissions (Mg)"]
+    .sum()
+    .nlargest(10)
+    .sort_values()
+)
+
+mean_by_fuel = df.groupby("Fuel Types")[EMISSION_COLS].mean()
+
+# --- layout ---
+fig = plt.figure(figsize=(16, 12), facecolor="#1a1a2e")
+fig.suptitle(
+    "Global Power Emissions Database\nFuel Type Emission Overview",
+    fontsize=18, fontweight="bold", color="white", y=0.97
+)
+
+ax1 = fig.add_subplot(2, 2, 1)
+ax2 = fig.add_subplot(2, 2, 2)
+ax3 = fig.add_subplot(2, 1, 2)
+
+PANEL_BG  = "#16213e"
+GRID_COL  = "#0f3460"
+FUEL_CLRS = ["#e94560", "#0f3460", "#533483", "#2b9348", "#f7b731"]
+
+for ax in (ax1, ax2, ax3):
+    ax.set_facecolor(PANEL_BG)
+    ax.tick_params(colors="white")
+    ax.xaxis.label.set_color("white")
+    ax.yaxis.label.set_color("white")
+    ax.title.set_color("white")
+    for spine in ax.spines.values():
+        spine.set_edgecolor(GRID_COL)
+
+# Panel 1 — plant count per fuel type
+bars = ax1.bar(plants_per_fuel.index, plants_per_fuel.values, color=FUEL_CLRS)
+ax1.set_title("Plants per Fuel Type", fontweight="bold")
+ax1.set_xlabel("Fuel Type")
+ax1.set_ylabel("Number of Plants")
+ax1.yaxis.set_major_formatter(mticker.FuncFormatter(lambda x, _: f"{int(x):,}"))
+ax1.grid(axis="y", color=GRID_COL, linewidth=0.7)
+for bar in bars:
+    ax1.text(
+        bar.get_x() + bar.get_width() / 2, bar.get_height() + 100,
+        f"{int(bar.get_height()):,}", ha="center", va="bottom",
+        fontsize=9, color="white"
+    )
+
+# Panel 2 — top 10 countries by CO2
+colors_co2 = plt.cm.YlOrRd(np.linspace(0.3, 0.95, len(top10_co2)))
+ax2.barh(top10_co2.index, top10_co2.values / 1e9, color=colors_co2)
+ax2.set_title("Top 10 Countries — Total CO2", fontweight="bold")
+ax2.set_xlabel("CO2 Emissions (Gg × 10⁹ Mg)")
+ax2.xaxis.set_major_formatter(mticker.FuncFormatter(lambda x, _: f"{x:.1f}"))
+ax2.grid(axis="x", color=GRID_COL, linewidth=0.7)
+
+# Panel 3 — mean emissions by fuel type (grouped bar)
+fuel_types = mean_by_fuel.index.tolist()
+x = np.arange(len(fuel_types))
+width = 0.2
+bar_colors = ["#e94560", "#f7b731", "#2b9348", "#00b4d8"]
+for i, (col, clr) in enumerate(zip(EMISSION_COLS, bar_colors)):
+    ax3.bar(x + i * width, mean_by_fuel[col], width, label=col, color=clr, alpha=0.85)
+ax3.set_title("Mean Emissions by Fuel Type", fontweight="bold")
+ax3.set_xticks(x + width * 1.5)
+ax3.set_xticklabels(fuel_types)
+ax3.set_ylabel("Mean Emissions (Mg)")
+ax3.yaxis.set_major_formatter(mticker.FuncFormatter(lambda x, _: f"{x/1e6:.1f}M"))
+ax3.grid(axis="y", color=GRID_COL, linewidth=0.7)
+ax3.legend(facecolor=PANEL_BG, labelcolor="white", framealpha=0.8)
+
+plt.tight_layout(rect=[0, 0, 1, 0.95])
+plt.savefig("Images/block4_eda_infographic.png", dpi=150, bbox_inches="tight")
+plt.show()
+```
+
+**Output:** `Images/block4_eda_infographic.png`
+
+---
+
+*Source: 03 - Read Dataset.ipynb / 04 - Fuel Type Emission Values.ipynb / Global_Power_Emissions_Database_v1.0.xlsx*
+*Last updated: 2026-05-28*

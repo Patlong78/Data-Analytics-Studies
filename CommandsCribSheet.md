@@ -20,3 +20,4 @@ git commit -a -m "Message to describe changes" : combines both lines of git add 
 git log : provides list of commits from latest to oldest
 q : quits the VIM code editor in the terminal
 git log -p -1 : provides list of commits with their differences (-# = number of commits)
+![](copy_image_address) : Inserts Image into Markdown [Shift+Enter to run Markdowns, if not entire file will run]
