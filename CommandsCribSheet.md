@@ -18,6 +18,9 @@ git fetch : Updates local snapshot of GitHub
 git diff origin/main : compares difference of local instance to the global instance, origin/main is the local snapshot of cloud
 git commit -a -m "Message to describe changes" : combines both lines of git add and git commit
 git log : provides list of commits from latest to oldest
-q : quits the VIM code editor in the terminal
+q or ":q" : quits the VIM code editor in the terminal
 git log -p -1 : provides list of commits with their differences (-# = number of commits)
 ![](copy_image_address) : Inserts Image into Markdown [Shift+Enter to run Markdowns, if not entire file will run]
+git fetch : downloads remote changes without merging
+git reset --hard origin/main : moves your local branch to match remote exactly, discarding all local commits and modifications
+git clean -fd : removes untracked files and directories (not touched by reset)
