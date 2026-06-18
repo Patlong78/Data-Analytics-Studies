@@ -1,0 +1,19 @@
+Read structure: abstract, results, conclusion, introduction and methodology
+
+01 - Neural Arritmetic Logic Unid with Independent Gates (2024)
+- Dataset: math formula, numbers imaging dataset
+- Concept: Higlit the method
+- Models: Activation function for model training: NALU vs NALUIG
+Note: Conv(shape = (10), activation = "Relu")
+Note: Table the results and discuss improvements (advantages, limitations "gaps", future works)
+- Goal:
+- Gap: 
+
+02 - SC Maware detection via Classical and Quantum Kernel methods (2025)
+- Dataset: Maware comunication log
+- 
+
+
+03 - Characterization of Quantum Computers for Optimal QML in brain tumor classification(2025)
+- Dataset: tumor dataset
+
