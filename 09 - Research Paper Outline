@@ -1,0 +1,25 @@
+- Problem: CO2 emitions are increassing in unsustantable rate, minimized them;
+- Objective: design a cleaner and smarter energy grid, when the boundery of CO2 is achieved (power engine) the energy produced is converted to potential energy (gravity powers). That is also for renuable energy. 
+- Algorithm:  Energy consumed compared Energy generated = Potential Energy = Energy to stored
+
+
+RESEARCH PAPERS:
+    1. Energy Consumption Prediction: (cities, conutries, regions, etc): Use AI to predict how much will be consumed.
+    2. Energy Generation Prediction: (Datasets for Renewable Energy (Solar, Wind)
+    3. Energy Storage Control:  (AI for baselining variance)
+
+TASKS:
+    1. Confirm trustworthness of Datasets (citations, etc)
+        a. Current Approaches of related Research Papers of same Dataset
+            i.Comparisons of Metrics to their Model
+            ii. Compare Gaps, and re-iterate with our Paper
+            iii. Create Code according to most similar Referenced Paper
+            iv. 
+    2. Categories for Reference Papers
+        a. Machine Learning
+        b. Power Generation
+        c. Power Consumption
+        d. Batteries
+        e. AI Prediction
+
+    3. Algorithm to Begin Coding Next Week
