@@ -1,7 +1,12 @@
-- Problem: CO2 emitions are increassing in unsustantable rate, minimized them;
-- Objective: design a cleaner and smarter energy grid, when the boundery of CO2 is achieved (power engine) the energy produced is converted to potential energy (gravity powers). That is also for renuable energy. 
-- Algorithm:  Energy consumed compared Energy generated = Potential Energy = Energy to stored
-
+- ABSTRACT:
+    Excess CO2 in the Atmosphere has a "Greenhouse Effect" of trapping heat and warming the planet.  Earth is a very complex organism and we need to better understand the cause and effect of how we create energy.  As the Digital Revolution begins, we have a unique opportunity to harness the power of Machine Learning and Artificial Intelligence to maximize energy creation and minimize it's byproduct of CO2 Emissions.  There is no one solution, yet there are multiple solutions that can interface as a system.  Power Consumption is never steady, it varies constantly daily and has different extremes throughout the year.  Variance make the Power Generation less optimal.  The Prime Movers for Power Generation are generally internal engines using fossil fuels.  Maintaining these Prime Movers at their optimal design rating can prevent excess CO2 production.  The Variance between Power Generation and Power Consumption can be balanced with Stored Energy (Batteries).  Creating a system that act in time to supplement Variance with Batteries will a much needed starting point to help ensure that the energy we create is harmozined with the planet that gives us life.
+- INTRODUCTION: 
+    The focus of this Research Paper is the Storage of Energy in Batteries.  The term Battery can be vague and have many different meanings.  This is generally thought of as the traditional lead acid batteries:  AA, AAA, C, etc.  More recently we have technological advancements with lithium for electronics and electric cars.  These are still packaged metals designed with anodes and cathodes.  If we focus more on idea of a Battery as simply something that stores energy, we remember there are other ways to store energy.  Potential energy has many forms.  One simple example is a water tower.  The idea of a water tower is moving water to a tank that is higher than a piping system.  For example, a water tower at a height of 100 feet could provide over 40 psi.  When water is needed gravity provides the source, which is supplemented by pumping more water up against gravity to ensure the water tower stays full.  This simple engineering idea of keeping water further away from the earth as a source when needed can be a perfect analogy of how to optimize the electrical grid.
+- RELATED WORK:  Energy consumed compared Energy generated = Potential Energy = Energy to stored
+- METHODOLOGY:
+- EXPERIMENTS & RESULTS:
+- DISCUSSION:
+- CONCLUSIONS:
 
 RESEARCH PAPERS:
     1. Energy Consumption Prediction: (cities, conutries, regions, etc): Use AI to predict how much will be consumed.
@@ -17,9 +22,10 @@ TASKS:
             iv. 
     2. Categories for Reference Papers
         a. Machine Learning
-        b. Power Generation
+        b. Power Generation (Fuel and Renewable)
         c. Power Consumption
         d. Batteries
         e. AI Prediction
 
     3. Algorithm to Begin Coding Next Week
+        a. Variance = Generation - Consumption

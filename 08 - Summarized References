@@ -1,106 +1,124 @@
 Read structure: abstract, results, conclusion, introduction and methodology
 
-01 - Neural Arithmetic Logic Units w/ Two Transition Matrix & Independent Gates (2024)
-- Dataset: Synthetic Initial dataset was hand drawn number used for training and testing image recognition.  Second dataset with inputs as numeric pairs (a,b) drawn from defined numeric ranges.  No sample count, just the range boundaries used for training and testing.
-- Concept: This Paper refines NALU by incorporating 2 additional Architectures; NALU2M and NALUIG
-- Chosen Model: NALU2MIG.
-- Goal: To build a neural network that actually knows arithmetic, not just one that approximates it within a familiar range.
-- Gap: NALU2MIG looks very promising on clean synthetic numbers, but we don't yet know if those gains hold in messier, real-world settings where numbers come from text, images, or code rather than clean numeric inputs.
+01 - Neural Arithmetic Logic Units with Two Transition Matrix and Independent Gates (2024)
+- REFERENCE CATEGORY: 
+- GOOGLE SCHOLAR CITATIONS: 
+- PROBLEM: Neural networks have traditionally struggled with systematic generalization when the numerical range at test time differs from the training range
+- OBJECTIVE: To build a neural network that actually knows arithmetic, not just one that approximates it within a familiar range.
+- DATASET: Two datasets used for different stages: (1) hand-drawn digit images, for image-recognition pretraining/testing. (2) Numeric pairs (a, b) drawn from defined ranges, for the arithmetic task itself. No sample counts recorded — only the range boundaries used for train/test splits.
+- MODELS: NAC, NALU, NALU2M, NALUIG, NALU2MIG
+- METRICS & RESULTS: 
+- CHOSEN MODEL: NALU2MIG
+- GAPS: NALU2MIG looks very promising on clean synthetic numbers, but we don't yet know if those gains hold in messier, real-world settings where numbers come from text, images, or code rather than clean numeric inputs.
+
 
 02 - Characterization of Quantum Computers for Optimal QML in Brain Tumor Classification (2025)
-- Dataset: Kaggle brain tumor MRI dataset — 3,763 medical scan samples with 15 extracted features (things like image texture, contrast, and intensity statistics). No raw MRI images; just the numerical measurements derived from them. Tested across 8 different IBM quantum computer backends, with feature subsets ranging from 2 to 9 dimensions.
-- Concept:  This paper tests whether Quantum Machine Learning can act consistently with same Model on different computers.  It also asks a second question: as you feed the quantum model more features, does it get smarter or does it break down? It turns out it breaks down — the opposite of what classical models do.
-- Chosen Model: A Quantum Support Vector Classifier (QSVC) was built and tested on real IBM quantum hardware, then compared against a classical Support Vector Classifier (SVC). The quantum model used a ZZFeatureMap to encode data into quantum states and a RealAmplitudes circuit to process it.
-- Goal: Establish a practical checklist of hardware requirements — minimum qubit count, speed, coherence time, readout error — so researchers know which quantum computers are actually reliable enough to run QML tasks on.
-- Gap: The quantum model matched classical accuracy at low dimensions (2 features, 98.5%) but collapsed to 44.5% accuracy at 9 features, while the classical model stayed above 99%. The hardware checklist is also based on a single dataset and single processor family — so we don't yet know how well these guidelines generalize to other quantum hardware or other classification problems.
+- REFERENCE CATEGORY: 
+- GOOGLE SCHOLAR CITATIONS: 
+- PROBLEM: 
+- OBJECTIVE: To test (1) whether a quantum machine learning model behaves consistently when run on different hardware, and (2) how its performance scales as more features are added.
+- DATASET: Kaggle brain tumor MRI dataset — 3,763 medical scan samples with 15 extracted features (things like image texture, contrast, and intensity statistics). No raw MRI images; just the numerical measurements derived from them. Tested across 8 different IBM quantum hardware backends, with feature subsets ranging from 2 to 9 dimensions.
+- MODELS: A Quantum Support Vector Classifier (QSVC) was built and tested on real IBM quantum hardware, then compared against a classical Support Vector Classifier (SVC). The quantum model used a ZZFeatureMap to encode data into quantum states and a RealAmplitudes circuit to process it.
+- METRICS & RESULTS: QSVC matched classical accuracy at low feature counts (98.5% at 2 features) but collapsed to 44.5% at 9 features, while the classical SVC held above 99% throughout.
+- CHOSEN MODEL: 
+- GAPS: The hardware checklist is based on a single dataset and single processor family — unclear whether these guidelines generalize to other quantum hardware or other classification problems.
 
-03 - 3 Supply Chain Malware Detection via Classical & Quantum Kernel Methods (2025)
-- Dataset: Source code and embedded-device data labeled as either safe or vulnerable, checked against accuracy, precision, recall, and how long each method takes to run.
-- Concept: Software today is built from lots of third-party pieces, and a vulnerability can sneak in through any of them. Regular ML has trouble picking up on these hidden weak spots, so this paper asks: can a quantum computer's special way of processing data spot them better?
-- Chosen Model: The paper takes standard ML methods and puts them side-by-side against quantum versions that use "quantum kernels" — basically, a quantum computer's way of measuring how similar two pieces of code are to each other, used to sort vulnerable code from safe code.
-- Goal: Find out whether the quantum approach actually catches more vulnerabilities than regular ML, or if it's not worth the extra complexity.
-- Gaps: The paper shows accuracy numbers but doesn't clearly say how much slower (or more expensive) the quantum method is — and similar studies have found quantum approaches can be thousands of times slower. It's also unclear if these results would hold up on different code or devices than the ones tested.
+
+03 - Supply Chain Malware Detection via Classical & Quantum Kernel Methods (2025)
+- REFERENCE CATEGORY: 
+- GOOGLE SCHOLAR CITATIONS: 
+- PROBLEM: Software today is built from many third-party pieces, and a vulnerability can sneak in through any of them. Regular ML has trouble picking up on these hidden weak spots.
+- OBJECTIVE: To find out whether a quantum computing approach can detect supply-chain vulnerabilities more effectively than standard ML, or whether it isn't worth the added complexity.
+- DATASET: Source code and embedded-device data labeled as either safe or vulnerable, evaluated on accuracy, precision, recall, and runtime for each method.
+- MODELS: Standard ML methods tested side-by-side against quantum versions using "quantum kernels" — a quantum computer's way of measuring how similar two pieces of code are to each other — to separate vulnerable code from safe code.
+- METRICS & RESULTS: 
+- CHOSEN MODEL: 
+- GAPS: The paper reports accuracy numbers but doesn't clearly state how much slower or more expensive the quantum method is — and similar studies have found quantum approaches can run thousands of times slower. It's also unclear whether these results would hold up on different code or devices than the ones tested.
 
 04 - Artificial Intelligence Applications for Energy Storage: A Comprehensive Review (2025)
-- Dataset: Not one dataset — this is a big roundup of 155 studies, pulling in things like battery lab tests, power grid simulations, real electricity prices from Norway, and national energy data from India and the UK.
-- Concept: Batteries are the missing link for solar and wind power, but they're tricky to manage — the chemistry is unpredictable and you're juggling cost, reliability, and environmental goals all at once. This paper surveys how AI is being used to handle that complexity, from a single battery cell up to whole countries' worth of storage.
-- Models: A wide mix — things like LSTM/GRU (predicting patterns over time), reinforcement learning (learning by trial and error), genetic algorithms, and explainable AI — each matched to a different job like estimating battery charge or forecasting grid demand.
-- Goal: Give one big-picture map of where AI is being used across energy storage, and for the first time, connect that to how much it's actually worth in dollar terms.
-- Gaps: AI trained on one type of battery doesn't transfer well to another. The best-performing models are too heavy to actually run on real battery hardware. Making AI "explainable" slows it down a lot. And the paper's technical findings and money findings don't really link up with each other.
+- REFERENCE CATEGORY: 
+- GOOGLE SCHOLAR CITATIONS: 
+- PROBLEM: Batteries are the missing link for solar and wind power, but they're difficult to manage — the underlying chemistry is unpredictable, and cost, reliability, and environmental goals all have to be balanced at once.
+- OBJECTIVE: To map where AI is currently being used across energy storage — from a single battery cell up to national-scale storage systems — and, for the first time, connect that technical picture to actual dollar-value impact.
+- DATASET: Not a single dataset — a review synthesizing 155 studies, drawing on battery lab tests, power grid simulations, real electricity prices from Norway, and national energy data from India and the UK.
+- MODELS: A wide mix, each matched to a different task: LSTM/GRU (predicting patterns over time), reinforcement learning (learning by trial and error), genetic algorithms, and explainable AI methods — applied to jobs like estimating battery charge or forecasting grid demand.
+- METRICS & RESULTS: 
+- CHOSEN MODEL: Not applicable — this is a review paper surveying multiple AI approaches rather than proposing or selecting a single model.
+- GAPS: AI models trained on one battery type don't transfer well to another. The best-performing models are too computationally heavy to run on real battery hardware. Making AI "explainable" significantly slows performance. And the paper's technical findings and financial findings aren't clearly linked to each other.
 
 05 - Predicting Power Plant Emissions Using Public Data and Machine Learning (2023)
-- Dataset: Public EPA data on hourly emissions from all 328 power plants in New York State (2015–2019), plus extra equipment info from an EPA audit tool. No private company data was needed — it's all public records.
-- Concept: Power plants have to report their emissions hourly by law, but predicting those numbers ahead of time using only public data is hard. Older studies used simple math and just the emissions numbers themselves; this paper adds a second public data source and uses smarter ML models instead, getting much better results — especially for NOx, the trickiest pollutant to predict.
+- DATASET: Public EPA data on hourly emissions from all 328 power plants in New York State (2015–2019), plus extra equipment info from an EPA audit tool. No private company data was needed — it's all public records.
+- CONCEPT: Power plants have to report their emissions hourly by law, but predicting those numbers ahead of time using only public data is hard. Older studies used simple math and just the emissions numbers themselves; this paper adds a second public data source and uses smarter ML models instead, getting much better results — especially for NOx, the trickiest pollutant to predict.
 - Models: Two ML methods — XGBoost and a neural network — both beat the old simple-math approach. They built a "full" version using all the data available, and a "lite" version using only the info that simpler planning tools typically have access to.
 - Goal: Build the most accurate emissions predictor possible using only free, public data — so anyone (researchers, regulators, analysts) can use it without needing insider access to power plant operations.
 - Gaps: The model skips plant startup/shutdown periods, even though that's when emissions spike the most. It also gets confused when a plant suddenly switches fuel types (like during a cold snap). Some of the public data has reporting errors baked in, and the whole study only covers New York — it's untested elsewhere.
 
 06 - A Comprehensive Review of Harmonic Issues & Estimation Techniques in Power Systems (2023)
-- Dataset: Not one dataset — a survey of about 95 studies, drawing on real substation measurements, simulated grid signals, smart meter data, and lab tests on things like LED lamps and generators.
-- Concept: Modern gadgets like EV chargers, LED lights, and solar inverters don't draw power smoothly — they pull it in choppy bursts that create "noise" on the grid called harmonics. Too much of this noise causes overheating and equipment failures. The usual fix needs expensive sensors everywhere and detailed grid knowledge; this paper looks at whether AI can spot the noise just from voltage/current readings instead.
+- DATASET: Not one dataset — a survey of about 95 studies, drawing on real substation measurements, simulated grid signals, smart meter data, and lab tests on things like LED lamps and generators.
+- CONCEPT:  Modern gadgets like EV chargers, LED lights, and solar inverters don't draw power smoothly — they pull it in choppy bursts that create "noise" on the grid called harmonics. Too much of this noise causes overheating and equipment failures. The usual fix needs expensive sensors everywhere and detailed grid knowledge; this paper looks at whether AI can spot the noise just from voltage/current readings instead.
 - Models: A big mix of AI methods (neural networks, LSTMs, SVMs, fuzzy logic, and more) compared against traditional math-based approaches like weighted least squares and Bayesian estimation.
 - Goal: Show that AI can estimate grid harmonics as well as or better than old-school math methods, using fewer sensors and less setup knowledge — making it cheaper to keep the grid running smoothly.
 - Gaps: Current safety standards don't even cover the higher-frequency noise that modern electronics create. Classical methods assume you already know things about the grid that you usually don't. And since every study measures things differently, there's no fair way to compare all these AI methods head-to-head yet.
 
 07 - Grid-Scale Battery Energy Storage & AI-Driven Intelligent Optimization (2026)
-- Dataset: Not one dataset — a strict systematic review that started with over 17,000 papers and narrowed down to 246 after filtering out duplicates and low-quality studies. Almost all of the underlying research is based on simulations, not real batteries running in the field.
-- Concept: Big batteries hooked up to the power grid (not phone or car batteries) are key to making solar and wind power reliable. But running them well means juggling a lot at once — battery health, predicting renewable output, deciding when to store vs. sell power — and old-school methods just can't keep up. This paper looks at how AI is being used to handle all of that together.
+- DATASET:  Not one dataset — a strict systematic review that started with over 17,000 papers and narrowed down to 246 after filtering out duplicates and low-quality studies. Almost all of the underlying research is based on simulations, not real batteries running in the field.
+- CONCEPT: Big batteries hooked up to the power grid (not phone or car batteries) are key to making solar and wind power reliable. But running them well means juggling a lot at once — battery health, predicting renewable output, deciding when to store vs. sell power — and old-school methods just can't keep up. This paper looks at how AI is being used to handle all of that together.
 - Models: Basically every flavor of AI — machine learning, deep learning, reinforcement learning, fuzzy logic — each applied to a different job like predicting battery lifespan, spotting faults, or deciding when to charge/discharge.
 - Goal: Pull together everything known about AI-powered battery storage — the tech, the money side, and the environmental side — to see what's actually working and where the gaps are.
 - Gaps: Almost all of this (96%) is tested in simulations, not real life, so results might not hold up in practice. AI can predict battery aging but doesn't really explain why it happens. Good training data is hard to come by since real battery data is often private or inconsistent. And the rules/regulations needed to actually deploy this stuff haven't caught up yet.
 
 08 - AI-Driven Smart Grid Optimization: ML, Renewable Integration & Cybersecurity (2026)
-- Dataset: Not one dataset — a review of 208 papers, drawing on things like standard grid stability benchmarks, test power networks, industrial control system security data, and real utility/microgrid case studies.
-- Concept: The power grid used to be simple — big plants sending power one way. Now millions of solar panels, EV chargers, and smart devices are all plugged in, and different research groups are tackling forecasting, grid control, and cybersecurity separately without talking to each other. This paper asks: where is AI actually working well, and where does it fall apart once you leave the lab and try it on a real grid?
-- Models: A wide range — CNNs/LSTMs for predicting demand, reinforcement learning for controlling the grid automatically, federated learning for keeping data private, and various methods for spotting cyberattacks.
-- Goal: Figure out where the biggest gap is between AI that works great in simulations versus AI that's actually safe and trustworthy to run on a real power grid.
-- Gaps: AI that controls the grid works fine in simulations but hasn't been proven safe on messy real-world grids. "Explainable AI" gives rough guesses, not real guarantees regulators can trust. Nobody's tracking how much energy the AI itself uses, which could cancel out its benefits. And on cybersecurity, almost all the focus is on catching attacks — barely anyone studies how to recover after one happens.
+- DATASET: Not one dataset — a review of 208 papers, drawing on things like standard grid stability benchmarks, test power networks, industrial control system security data, and real utility/microgrid case studies.
+- CONCEPT: The power grid used to be simple — big plants sending power one way. Now millions of solar panels, EV chargers, and smart devices are all plugged in, and different research groups are tackling forecasting, grid control, and cybersecurity separately without talking to each other. This paper asks: where is AI actually working well, and where does it fall apart once you leave the lab and try it on a real grid?
+- DATASET: A wide range — CNNs/LSTMs for predicting demand, reinforcement learning for controlling the grid automatically, federated learning for keeping data private, and various methods for spotting cyberattacks.
+- DATASET: Figure out where the biggest gap is between AI that works great in simulations versus AI that's actually safe and trustworthy to run on a real power grid.
+- DATASET: AI that controls the grid works fine in simulations but hasn't been proven safe on messy real-world grids. "Explainable AI" gives rough guesses, not real guarantees regulators can trust. Nobody's tracking how much energy the AI itself uses, which could cancel out its benefits. And on cybersecurity, almost all the focus is on catching attacks — barely anyone studies how to recover after one happens.
 
 09 - Deep Reinforcement Learning for BESS Optimization and Residential Decarbonization: An Iraqi Case Study (2026)
-- Dataset: One year of real operational data from a residential solar+battery setup in Iraq, tested specifically during a 122-day summer stretch with 35.5% grid outages.
-- Concept: When the power grid can't keep up, people fall back on diesel generators, which spike emissions. This paper trains a battery to "learn" daily solar and demand patterns so it can store power ahead of time and cover gaps — cutting how often diesel backup kicks in.
+- DATASET:  One year of real operational data from a residential solar+battery setup in Iraq, tested specifically during a 122-day summer stretch with 35.5% grid outages.
+- CONCEPT:  When the power grid can't keep up, people fall back on diesel generators, which spike emissions. This paper trains a battery to "learn" daily solar and demand patterns so it can store power ahead of time and cover gaps — cutting how often diesel backup kicks in.
 - Chosen Model: A Deep Q-Network (DQN) reinforcement learning agent controlling battery charge/discharge timing.
 - Goal: Show that a smart battery can directly reduce carbon emissions from backup generators by anticipating shortfalls instead of just reacting to them.
 - Gaps: Tested in one location with one grid-reliability profile — how well it'd work somewhere with different outage patterns or backup fuel sources isn't shown.
 
 10 - Learning a Local Trading Strategy: Deep RL for Grid-Scale Renewable Energy Integration (2024)
-- Dataset: Simulated grid-scale battery paired with solar generation, tested across multiple locations and seasons.
-- Concept: Solar power is naturally "peaky" — lots of power at noon, none at night — which strains the grid and can force fossil-fuel plants to ramp up and down inefficiently. This paper trains a battery to smooth that out by storing excess solar and releasing it later, cutting the need for that fossil backup.
+- DATASET:  Simulated grid-scale battery paired with solar generation, tested across multiple locations and seasons.
+- CONCEPT:  Solar power is naturally "peaky" — lots of power at noon, none at night — which strains the grid and can force fossil-fuel plants to ramp up and down inefficiently. This paper trains a battery to smooth that out by storing excess solar and releasing it later, cutting the need for that fossil backup.
 - Chosen Model: A deep reinforcement learning agent that decides in real time when to store vs. release energy, compared against rule-based control methods.
 - Goal: Get as close as possible to the theoretical "perfect" battery strategy for absorbing renewable variability, using only real-time data (no future knowledge).
 - Gaps: The RL agent's performance isn't consistent every time it's trained — and the paper doesn't address what happens if many batteries all copy the same strategy at once.
 
 11 - Grid-Scale Battery Energy Storage & AI-Driven Intelligent Optimization (2026)
-- Dataset: A large systematic review (246 studies) covering grid-connected battery systems, mostly simulation-based rather than real-world tests.
-- Concept: Batteries are the key tool for handling the ups and downs of renewable power, but doing it well means juggling battery health, demand forecasting, and environmental impact all at once — which manual/traditional grid control can't do well. This review maps out how AI handles that job across the board.
+- DATASET:  A large systematic review (246 studies) covering grid-connected battery systems, mostly simulation-based rather than real-world tests.
+- CONCEPT:  Batteries are the key tool for handling the ups and downs of renewable power, but doing it well means juggling battery health, demand forecasting, and environmental impact all at once — which manual/traditional grid control can't do well. This review maps out how AI handles that job across the board.
 - Chosen Model: A wide mix — machine learning, deep learning, and reinforcement learning approaches applied to battery charge/discharge decisions, fault detection, and lifespan forecasting.
 - Goal: Pull together the full picture of how AI-optimized batteries actually cut emissions and smooth out variable electricity consumption, both technically and economically.
 - Gaps: 96% of the underlying research is simulation-only, so real-world emissions reductions may be smaller than reported; also, regulations in many places haven't caught up enough to actually deploy these systems.
 
 12 - Role of Battery Energy Storage Systems: A Comprehensive Review on Renewable Energy Zone Integration in Weak Transmission Networks (2025)
-- Dataset: Not one dataset — a broad review of published studies on renewable energy zones (mostly solar/wind) connected to weaker, less robust parts of the power grid.
-- Concept: Solar and wind power swing up and down unpredictably, and weak grids can't absorb those swings well — causing voltage problems and forcing fossil-fuel "peaker" plants to kick in and out constantly, which is inefficient and dirty. This review looks at how batteries smooth those swings out so fossil plants don't have to work as hard covering the gaps.
+- DATASET: Not one dataset — a broad review of published studies on renewable energy zones (mostly solar/wind) connected to weaker, less robust parts of the power grid.
+- CONCEPT:  Solar and wind power swing up and down unpredictably, and weak grids can't absorb those swings well — causing voltage problems and forcing fossil-fuel "peaker" plants to kick in and out constantly, which is inefficient and dirty. This review looks at how batteries smooth those swings out so fossil plants don't have to work as hard covering the gaps.
 - Chosen Model: Not an ML model — this is a review of BESS engineering strategies: peak shaving, load shifting, frequency regulation, and voltage smoothing.
 - Goal: Show how batteries reduce the need for emission-heavy backup plants by directly absorbing the variability that would otherwise force those plants to ramp up and down.
 - Gaps: As a review, it summarizes what's been done elsewhere rather than testing anything new — real deployment costs and grid-specific regulatory hurdles aren't deeply analyzed.
 
 13 - Optimal Capacity of a Battery Energy Storage System Based on Solar Variability Index to Smooth Out Power Fluctuations in PV-Diesel Microgrids
-- Dataset: One full year of real solar irradiance data (1-minute resolution) from 11 sites across Australia.
-- Concept: In PV-diesel microgrids, sudden dips in sunlight force diesel generators to ramp up quickly to cover the gap — exactly the kind of stop-start operation that hurts engine efficiency and increases emissions. This paper works out how big a battery needs to be to absorb those solar dips, so the diesel engine can run steadier instead.
+- DATASET:  One full year of real solar irradiance data (1-minute resolution) from 11 sites across Australia.
+- CONCEPT:  In PV-diesel microgrids, sudden dips in sunlight force diesel generators to ramp up quickly to cover the gap — exactly the kind of stop-start operation that hurts engine efficiency and increases emissions. This paper works out how big a battery needs to be to absorb those solar dips, so the diesel engine can run steadier instead.
 - Chosen Model: Not ML — a statistical/engineering approach using moving-average and ramp-rate control techniques, validated with linear regression and MATLAB simulations.
 - Goal: Give a simple formula so engineers can estimate the right battery size to smooth solar swings, without needing to run full detailed simulations for every project.
 - Gaps: The formula worked well for the moving-average smoothing method but was much less accurate for the ramp-rate control method — so it's not equally reliable across all smoothing strategies.
 
 14 - Harnessing Battery Energy Storage Systems with CO2 Time-Shift Strategies for Power Grid Emissions Control (2025)
-- Dataset: Grid dispatch data used in two case studies, applying a security-constrained economic dispatch (SCED) model that tracks CO2 output at both the whole-grid level and per individual generator.
-- Concept: Grid operators usually just pick whichever power plants are cheapest to run at any given moment — but the cheapest option is often also the dirtiest. This paper asks whether a battery can be used to "time-shift" when dirty generators run, storing power when it's cleaner and releasing it later, so overall emissions drop without blowing the budget.
+- DATASET:  Grid dispatch data used in two case studies, applying a security-constrained economic dispatch (SCED) model that tracks CO2 output at both the whole-grid level and per individual generator.
+- CONCEPT:  Grid operators usually just pick whichever power plants are cheapest to run at any given moment — but the cheapest option is often also the dirtiest. This paper asks whether a battery can be used to "time-shift" when dirty generators run, storing power when it's cleaner and releasing it later, so overall emissions drop without blowing the budget.
 - Chosen Model: Not ML — a two-stage optimization model. Stage one calculates the normal (baseline) CO2 output; stage two solves a balancing act between cost and emissions using battery charge/discharge timing.
 - Goal: Show that batteries can directly control a grid's carbon footprint, not just its reliability, by shifting exactly when high-emission generators are needed.
 - Gaps: Tested on only two case studies, so it's unclear how well the emissions-shifting strategy scales to larger, more complex grids with many more competing generators and constraints.
 
 15 - Role of Energy Storage Technologies in Enhancing Grid Stability and Reducing Fossil Fuel Dependency (2025)
-- Dataset: A mix of literature review and real-world case studies from island power grids (Tsushima, El Hierro, Réunion, Tenerife), combined with global energy statistics from the International Energy Agency.
-- Concept: Small island grids are especially reliant on fossil fuel generators because they can't easily borrow power from neighbors when renewables dip. This paper looks at how pairing batteries (and other storage like hydrogen) with renewables lets these islands cut fossil fuel use dramatically while keeping the lights on.
+- DATASET: A mix of literature review and real-world case studies from island power grids (Tsushima, El Hierro, Réunion, Tenerife), combined with global energy statistics from the International Energy Agency.
+- CONCEPT:  Small island grids are especially reliant on fossil fuel generators because they can't easily borrow power from neighbors when renewables dip. This paper looks at how pairing batteries (and other storage like hydrogen) with renewables lets these islands cut fossil fuel use dramatically while keeping the lights on.
 - Chosen Model: Not ML — a systematic literature review plus real case-study comparisons across the four islands, evaluating storage's effect on cost, reliability, and emissions.
 - Goal: Show real-world proof that storage-backed renewables can replace fossil generators almost entirely, using actual island grids as evidence rather than just theory.
 - Gaps: Findings come from small, isolated island grids, which have very different constraints than large, interconnected mainland power systems — so the emissions and cost benefits may not scale up the same way.
