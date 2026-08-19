@@ -1,0 +1,2 @@
+model,accuracy,precision,specificity,recall,f1_score
+Quantum Random Forest (poly embed + RF),0.9341053661719132,0.9334612195327125,0.9762169371903949,0.9341053661719132,0.9331749217737898
